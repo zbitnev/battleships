@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectShips } from './store'
 
 import styles from './GameStats.module.css';
+import { ShipStatus } from './ShipStatus';
 
 export const GameStats = ({ className }) => {
   const ships = useSelector(selectShips)
@@ -12,7 +13,7 @@ export const GameStats = ({ className }) => {
     <ul className={styles.ships}>
       {ships.map(ship => {
         return (
-          <li className={classNames(styles.ship, {[styles.sunk]: ship.sunk})}>{ship.name} {ship.hits}/{ship.total}</li>
+          <li className={classNames(styles.ship, {[styles.sunk]: ship.sunk})}>{ship.name} <ShipStatus ship={ship} /></li>
         )
       })}
     </ul>
