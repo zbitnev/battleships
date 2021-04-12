@@ -13,6 +13,23 @@
   background-color: darkgray;
 }
 
+.cell {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
+  outline: none;
+  border: none;
+}
+
+.miss {
+  background-image: url(./assets/miss_small.png);
+}
+
+.hit {
+  background-image: url(./assets/hit_small.png);
+}
+
 @media screen and (orientation: portrait) and (min-width: 360px),
       screen and (orientation: landscape) and (min-height: 360px) {
   .grid {

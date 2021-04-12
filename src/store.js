@@ -15,7 +15,8 @@ const INITIAL_STATE = {
       { ship: "cruiser", positions: [[8,1], [8,2], [8,3]], hits: []  },
       { ship: "submarine", positions: [[3,0], [3,1], [3,2]], hits: [] },
       { ship: "destroyer", positions: [[0,0], [1,0]], hits: [] }
-  ]
+  ],
+  misses: []
 }
 
 function eq(pos1, pos2) {
@@ -44,6 +45,17 @@ export const reducer = (state = INITIAL_STATE, { type, payload }) => {
   }
 
   return state;
+}
+
+export function selectField(state) {
+  const field = new Array(FIELD_SIZE).fill(null).map(() => new Array(FIELD_SIZE).fill(null))
+  
+  state.misses.forEach(pos => { field[pos[0]][pos[1]] = 'miss' })
+  state.layout.forEach(({ hits }) => {
+    hits.forEach(pos => { field[pos[0]][pos[1]] = 'hit' })
+  })
+
+  return field
 }
 
 export const store = createStore(reducer)
