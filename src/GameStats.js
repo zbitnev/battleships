@@ -12,7 +12,7 @@ export const GameStats = ({ className }) => {
     <ul className={styles.ships}>
       {ships.map(ship => {
         return (
-          <li className={styles.ship}>{ship.name} - {ship.hits}/{ship.total}{ship.sunk ? ' - sunk!' : ''}</li>
+          <li className={classNames(styles.ship, {[styles.sunk]: ship.sunk})}>{ship.name} {ship.hits}/{ship.total}</li>
         )
       })}
     </ul>

@@ -41,7 +41,7 @@
 @media screen and (orientation: portrait) and (min-width: 768px),
     screen and (orientation: landscape) and (min-height: 768px) {
   .grid {
-    grid-template: repeat(10, 60px) / repeat(10, 60px);
+    grid-template: repeat(10, 56px) / repeat(10, 56px);
     grid-gap: 2px;
   }
 }
