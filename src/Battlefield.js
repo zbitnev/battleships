@@ -23,6 +23,7 @@ export const Battlefield = ({ className }) => {
         data-x={x}
         data-y={y}
         onClick={onCellClick}
+        disabled={field[x][y] !== null}
         className={classNames(styles.cell, {
           [styles.miss]: field[x][y] === 'miss',
           [styles.hit]: field[x][y] === 'hit',

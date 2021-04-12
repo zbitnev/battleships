@@ -58,4 +58,17 @@ export function selectField(state) {
   return field
 }
 
+export function selectShips(state) {
+  return state.layout.reduce((acc, curr) => {
+    const shipData = {
+      name: curr.ship,
+      total: curr.positions.length,
+      hits: curr.hits.length,
+      sunk: curr.positions.length === curr.hits.length
+    }
+    acc.push(shipData)
+    return acc
+  }, [])
+}
+
 export const store = createStore(reducer)
